@@ -2,7 +2,7 @@ import React from "react";
 import "./css/ErrorFallbackUI.css";
 import errorExclamation from "./../../Images/ErrorExclamation.png";
 import Button from "@mui/material/Button";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const ErrorFallbackUI = (props) => {
   const navigate = useNavigate();
@@ -13,10 +13,11 @@ export const ErrorFallbackUI = (props) => {
         <img
           src={errorExclamation}
           id="errorStaticImage"
+          alt="1"
           style={{ height: "10rem" }}
         />
         <h2>Something went wrong !!!</h2>
-        <details style={{ fontSize: "12px" }}>
+        <details style={{ fontSize: "14px", color: "red" }}>
           {props.error && props.error.toString()}
         </details>
         <br />
