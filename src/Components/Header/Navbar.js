@@ -4,17 +4,15 @@ import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
-import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import ForumIcon from "@mui/icons-material/Forum";
 import "./css/Navbar.css";
 import { useNavigate } from "react-router-dom";
-
 import { useState, useEffect } from "react";
+import TravelExploreOutlinedIcon from "@mui/icons-material/TravelExploreOutlined";
 
 function getWindowDimensions() {
   const { innerWidth: width, innerHeight: height } = window;
@@ -73,7 +71,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create("width"),
-    width: "100%",
+    width: "80%",
     [theme.breakpoints.up("sm")]: {
       width: "30ch",
       "&:focus": {
@@ -85,7 +83,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export const Navbar = () => {
   const path = window.location.pathname;
-  const { height, width } = useWindowDimensions();
+  const { width } = useWindowDimensions();
   const navigate = useNavigate();
 
   return (
@@ -102,6 +100,7 @@ export const Navbar = () => {
               sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
             >
               <div className="appName" onClick={(e) => navigate("/")}>
+                <TravelExploreOutlinedIcon style={{ fontSize: "50px" }} />
                 DevDiscuss
               </div>
             </Typography>
@@ -148,7 +147,7 @@ export const Navbar = () => {
               <div
                 style={{
                   display: "flex",
-                  marginLeft: "2%",
+                  marginLeft: "1%",
                   cursor: "pointer",
                   padding: "10px",
                   borderBottom: "2px solid black",
@@ -163,7 +162,7 @@ export const Navbar = () => {
               <div
                 style={{
                   display: "flex",
-                  marginLeft: "2%",
+                  marginLeft: "1%",
                   cursor: "pointer",
                   padding: "10px",
                 }}

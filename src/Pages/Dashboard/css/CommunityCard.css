@@ -1,0 +1,27 @@
+.img-sugg {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    margin-bottom: 5px;
+  }
+  .container {
+    margin-top: 10px;
+    height: fit-content;
+    width: 100%;
+  }
+  .sug-name {
+    font-size: 0.9em;
+    font-weight: bold;
+  }
+  .sug-username {
+    font-size: 0.6em;
+  }
+  
+  .sug-similarity{
+    font-size: 0.8em;
+    color: #1976d2;
+  }
+
+  .coverCard{
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  }

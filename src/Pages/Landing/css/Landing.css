@@ -1,0 +1,84 @@
+.CommunityContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.CommunityBox{
+    position: relative;
+    width: 300px;
+    height: 270px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    transition: 1.5s;
+    margin: 40px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    border-radius: 20px;
+    transition: transform .2s;
+}
+
+.CommunityBox:hover{
+    transform: scale(1.2);
+}
+
+.CommunityDescription {
+    width: 80%;
+    margin: auto;
+}
+
+.HeadingManrope{
+    font-family: 'Manrope', sans-serif;
+    font-size: 3em;
+}
+
+.LandingBG{
+    height: 500px;
+    background: url("./../../../Images/Background.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.LandingText{
+    font-family: 'Pacifico', cursive;
+    font-size: 40px;
+    width: 100%;
+    display: block;
+    color: #fff;
+    transform: translateY(30px);
+}
+
+.buttonExplore {
+    outline: 0;
+    transform: translateY(-60px);
+    position: relative;
+    display: inline-block;
+    padding: 10px 40px;
+    font-size: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid aqua;
+    background: #FFFF;
+    color: #F900BF;
+    font-weight: 600;
+    transition: box-shadow 0.5s ease-in-out, border-color 0.5s ease-in-out;
+    border-radius: 20px;
+}
+.buttonExplore:hover {
+    background-color: #FFFF;
+    color: #F900BF;
+    box-shadow: 0 0 5px #FFFF00,
+                0 0 20px rgb(255 255 0 / 0.8),
+                0 0 35px rgb(255 255 0 / 0.7),
+                0 0 50px rgb(255 255 0 / 0.6);
+    border-color: #fff;
+}
