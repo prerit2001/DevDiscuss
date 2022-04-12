@@ -16,10 +16,10 @@
 .seven h2:after,.seven h2:before {
     content: " ";
     display: block;
-    border-bottom: 1px solid #c50000;
-    border-top: 1px solid #c50000;
-    height: 5px;
-    background-color:#f8f8f8;
+    border-bottom: 1px solid #F900BF;
+    border-top: 1px solid #F900BF;
+    height: 2px;
+    background-color:#F900BF;
 }
 
 .CoverCommunityCard{
@@ -33,3 +33,27 @@
 .CoverCommunityCard::-webkit-scrollbar {
     display: none;
 }
+
+.RowCover{
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #a8bbbf;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+  }

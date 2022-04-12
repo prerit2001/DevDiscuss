@@ -4,6 +4,7 @@ import CPVSDEV from "../../Images/CP-VS-Dev.png";
 import SoftwareDevelopement from "../../Images/SoftwareDevelopement.png";
 import OpenSource from "../../Images/OpenSource.png";
 import Typewriter from "typewriter-effect";
+import { Dashboard } from "../Dashboard/Dashboard";
 
 export const Landing = () => {
   const FeaturedCommunity = (community) => {
@@ -74,6 +75,7 @@ export const Landing = () => {
           <FeaturedCommunity data={community3} style={{ margin: "15%" }} />
         </div>
       </div>
+      {/* <Dashboard /> */}
     </div>
   );
 };

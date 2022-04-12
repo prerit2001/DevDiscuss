@@ -120,7 +120,7 @@ export const Navbar = () => {
                   marginLeft: "2%",
                   cursor: "pointer",
                   padding: "10px",
-                  borderBottom: "2px solid black",
+                  borderBottom: "2px solid #F900BF",
                 }}
                 onClick={(e) => navigate("/community")}
               >
@@ -150,7 +150,7 @@ export const Navbar = () => {
                   marginLeft: "1%",
                   cursor: "pointer",
                   padding: "10px",
-                  borderBottom: "2px solid black",
+                  borderBottom: "2px solid #F900BF",
                 }}
                 onClick={(e) => navigate("/dashboard")}
               >
