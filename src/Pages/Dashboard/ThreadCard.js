@@ -16,7 +16,7 @@ export const ThreadCard = () => {
     <div>
       <div className="ThreadContainer">
         <div className="Question">
-          My Internship experience with Texas Instrument
+          My Internship experience with Texas Instruments
         </div>
         <div className="ThreadCommunity">📦 Texas Instrument</div>
         <div className="ThreadDescription">{description.slice(0, 150)} ...</div>

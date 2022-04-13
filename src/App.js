@@ -6,6 +6,7 @@ import { Footer } from "./Components/Footer/Footer";
 import { Landing } from "./Pages/Landing/Landing";
 import { Dashboard } from "./Pages/Dashboard/Dashboard";
 import { Community } from "./Pages/Community/Community";
+import { Threads } from "./Pages/Threads/Threads";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
               <Route exact path="/" element={<Landing />} />
               <Route exact path="/dashboard" element={<Dashboard />} />
               <Route exact path="/community" element={<Community />} />
+              <Route exact path="/threads/:id" element={<Threads />} />
             </Routes>
           </div>
           <Footer />

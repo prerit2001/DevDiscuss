@@ -10,6 +10,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import { ThreadCard } from "./ThreadCard";
+import { useNavigate } from "react-router-dom";
 
 function getWindowDimensions() {
   const { innerWidth: width, innerHeight: height } = window;
@@ -38,6 +39,7 @@ export default function useWindowDimensions() {
 
 export const Dashboard = () => {
   const { height, width } = useWindowDimensions();
+  const navigate = useNavigate();
 
   const MyCommunity = () => {
     return (
@@ -167,71 +169,141 @@ export const Dashboard = () => {
             </FormControl>
           </div>
           <div style={{ width: "10%" }}>
-            <div style={{ fontSize: "20px" }}>Upvotes</div>
+            <div style={{ fontSize: "20px" }}>{width > 1100 && "Upvotes"}</div>
           </div>
           <div style={{ width: "10%" }}>
             {" "}
-            <div style={{ fontSize: "20px" }}>Views</div>
+            <div style={{ fontSize: "20px" }}>{width > 1100 && "Views"}</div>
           </div>
           <div style={{ width: "10%" }}>
             {" "}
-            <div style={{ fontSize: "20px" }}>Replies</div>
+            <div style={{ fontSize: "20px" }}>{width > 1100 && "Replies"}</div>
           </div>
         </div>
         <div className="RowCover" style={{ height: height - 230 }}>
-          <RowData />
-          <RowData />
-          <RowData />
-          <RowData />
-          <RowData />
-          <RowData />
+          <div onClick={(e) => navigate("/threads/1")}>
+            <RowData />
+          </div>
+          <div onClick={(e) => navigate("/threads/1")}>
+            <RowData />
+          </div>
+          <div onClick={(e) => navigate("/threads/1")}>
+            <RowData />
+          </div>
+          <div onClick={(e) => navigate("/threads/1")}>
+            <RowData />
+          </div>
+          <div onClick={(e) => navigate("/threads/1")}>
+            <RowData />
+          </div>
+          <div onClick={(e) => navigate("/threads/1")}>
+            <RowData />
+          </div>
+          <div onClick={(e) => navigate("/threads/1")}>
+            <RowData />
+          </div>
+          <div onClick={(e) => navigate("/threads/1")}>
+            <RowData />
+          </div>
+          <div onClick={(e) => navigate("/threads/1")}>
+            <RowData />
+          </div>
         </div>
       </div>
     );
   };
 
-  return (
-    <div style={{ textAlign: "center", display: "flex" }}>
-      <div
-        style={{
-          height: height - 120,
-          width: "70%",
-          // border: "2px solid black",
-          boxShadow:
-            "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px",
-          margin: "1%",
-        }}
-      >
-        {" "}
-        <Threads />
-      </div>
-      <div
-        style={{
-          height: height - 120,
-          width: "26%",
-        }}
-      >
+  const PhoneViewport = () => {
+    return (
+      <div style={{ textAlign: "center" }}>
         <div
           style={{
-            height: "48%",
-            boxShadow:
-              "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px",
-            marginBottom: "6%",
-            marginTop: "4%",
+            height: height - 120,
           }}
         >
-          <FavorityCommunity />
+          <div
+            style={{
+              height: "48%",
+              boxShadow:
+                "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px",
+              marginBottom: "6%",
+              marginTop: "4%",
+            }}
+          >
+            <FavorityCommunity />
+          </div>
+          <div
+            style={{
+              height: "48%",
+              boxShadow:
+                "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px",
+            }}
+          >
+            <MyCommunity />
+          </div>
         </div>
         <div
           style={{
-            height: "48%",
+            height: height - 120,
+            // border: "2px solid black",
             boxShadow:
               "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px",
+            margin: "1%",
           }}
         >
-          <MyCommunity />
+          {" "}
+          <Threads />
         </div>
       </div>
-    </div>
-  );
+    );
+  };
+
+  const DesktopViewport = () => {
+    return (
+      <div style={{ textAlign: "center", display: "flex" }}>
+        <div
+          style={{
+            height: height - 120,
+            width: "70%",
+            // border: "2px solid black",
+            boxShadow:
+              "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px",
+            margin: "1%",
+          }}
+        >
+          {" "}
+          <Threads />
+        </div>
+        <div
+          style={{
+            height: height - 120,
+            width: "26%",
+          }}
+        >
+          <div
+            style={{
+              height: "48%",
+              boxShadow:
+                "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px",
+              marginBottom: "6%",
+              marginTop: "4%",
+            }}
+          >
+            <FavorityCommunity />
+          </div>
+          <div
+            style={{
+              height: "48%",
+              boxShadow:
+                "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px",
+            }}
+          >
+            <MyCommunity />
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  return <div>{width < 1100 ? <PhoneViewport /> : <DesktopViewport />}</div>;
 };
