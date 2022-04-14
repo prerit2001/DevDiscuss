@@ -49,7 +49,6 @@
 }
 
 .LandingText{
-    font-family: 'Pacifico', cursive;
     font-size: 40px;
     width: 100%;
     display: block;
@@ -81,4 +80,28 @@
                 0 0 35px rgb(255 255 0 / 0.7),
                 0 0 50px rgb(255 255 0 / 0.6);
     border-color: #fff;
+}
+
+.LeftHalfDiscussion{
+    margin-top: 5%;
+    width: 50%;
+    padding: 5%;
+    padding-top: 20%;
+    margin: 10px;
+}
+
+@media only screen and (min-width: 1000px) {
+    .CoverDiscussion {
+        display: flex;
+    }
+  }
+
+.RightHalfDiscussion{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    font-size: 3rem;
+    padding: 10%;
+    margin: 20px;
 }

@@ -5,7 +5,6 @@ import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
 import { useFormik } from "formik";
 import ReactMarkdown from "react-markdown";
 import { Button } from "@mui/material";
-import Stack from "@mui/material/Stack";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 
@@ -80,15 +79,21 @@ export const Threads = () => {
         comment: "",
       },
       onSubmit: (values) => {
-        // alert(JSON.stringify(comment, null, 2));
         handleClick();
       },
     });
+
+    const [preview, setpreview] = useState(false);
 
     const [comment, setComment] = useState("");
 
     function handleChange(e) {
       setComment(e.target.value);
+      // setState({
+      //   open: false,
+      //   vertical: "top",
+      //   horizontal: "center",
+      // });
     }
 
     return (
@@ -110,30 +115,39 @@ export const Threads = () => {
                 }}
                 name="comment"
                 onChange={handleChange}
-                value={formik.values.email}
+                // value={formik.values.comment}
                 placeholder="Type your comment here ... (Markdown is supported)"
               />
-              <div
-                style={{
-                  width: "100%",
-                  height: "80px",
-                  border: ".1px solid black",
-                  overflow: "scroll",
-                  paddingLeft: "2px",
-                  fontSize: ".8rem",
-                  color: "#868686",
-                }}
-              >
-                <ReactMarkdown>
-                  {comment.length > 0 ? comment : "Comment Preview"}
-                </ReactMarkdown>
-              </div>
+              {preview && (
+                <div
+                  style={{
+                    width: "100%",
+                    height: "80px",
+                    border: ".1px solid black",
+                    overflow: "scroll",
+                    paddingLeft: "2px",
+                    fontSize: ".8rem",
+                    color: "#868686",
+                  }}
+                >
+                  <ReactMarkdown>
+                    {comment.length > 0 ? comment : "Comment Preview"}
+                  </ReactMarkdown>
+                </div>
+              )}
               <Button
                 variant="contained"
                 type="submit"
-                style={{ float: "right" }}
+                style={{ float: "right", marginLeft: "10px" }}
               >
                 Post
+              </Button>
+              <Button
+                variant="contained"
+                onClick={(e) => setpreview(!preview)}
+                style={{ float: "right" }}
+              >
+                {!preview ? "Preview" : "Collapse"}
               </Button>
             </form>
           </div>

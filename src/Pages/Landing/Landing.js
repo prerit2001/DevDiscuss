@@ -4,7 +4,7 @@ import CPVSDEV from "../../Images/CP-VS-Dev.png";
 import SoftwareDevelopement from "../../Images/SoftwareDevelopement.png";
 import OpenSource from "../../Images/OpenSource.png";
 import Typewriter from "typewriter-effect";
-import { Dashboard } from "../Dashboard/Dashboard";
+import Discussion from "../../Images/Discussion.png";
 
 export const Landing = () => {
   const FeaturedCommunity = (community) => {
@@ -55,7 +55,7 @@ export const Landing = () => {
                 .typeString("Hello, What can we help you find?")
                 .pauseFor(1000)
                 .deleteAll()
-                .typeString("Share and grow the worlds knowlodge!")
+                .typeString("Share and grow the worlds knowledge!")
                 .start();
             }}
           />
@@ -75,7 +75,18 @@ export const Landing = () => {
           <FeaturedCommunity data={community3} style={{ margin: "15%" }} />
         </div>
       </div>
-      {/* <Dashboard /> */}
+      <div className="CoverDiscussion">
+        <div>
+          <img src={Discussion} className="LeftHalfDiscussion" alt="#"></img>
+        </div>
+        <div className="RightHalfDiscussion">
+          A public platform building the definitive collection of tech questions
+          & answers
+          <div style={{ fontSize: "20px", marginTop: "20px" }}>
+            Your 360-Patner
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
