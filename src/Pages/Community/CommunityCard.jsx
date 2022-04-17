@@ -1,5 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import Bg from "./../../Images/Background.png";
+import { useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles({
   CommunityCard: {
@@ -11,6 +13,7 @@ const useStyles = makeStyles({
     marginRight: "2%",
     marginBottom: "2%",
     borderRadius: "30px",
+    cursor: "pointer",
     ["@media (max-width:1000px)"]: {
       width: "80%",
     },
@@ -22,11 +25,15 @@ const useStyles = makeStyles({
     margin: "20px",
     padding: "20px",
     borderRadius: "30px",
-    background: "#8479E1",
+    backgroundColor: "#FF3CAC",
+    background: `url(${Bg}) no-repeat center`,
+    backgroundSize: "cover",
+
     justifyContent: "center",
     alignItems: "center",
     display: "flex",
     color: "#fff",
+    fontSize: "1.5rem",
   },
   Facts: {
     display: "flex",
@@ -41,8 +48,12 @@ export const CommunityCard = (props) => {
   const classes = useStyles();
   const { CommunityCard, TitleBG, Facts } = classes;
   const lastthread = props.Threads[0].title;
+  const navigate = useNavigate();
   return (
-    <div className={CommunityCard}>
+    <div
+      className={CommunityCard}
+      onClick={(e) => navigate("/community/" + props.id)}
+    >
       <div className={TitleBG}>{props.title}</div>
       <div className={Facts}>
         <div style={{ display: "block", marginRight: "30px" }}>
@@ -55,7 +66,7 @@ export const CommunityCard = (props) => {
         </div>
         <div style={{ display: "block", marginRight: "30px" }}>
           <div style={{ color: "#868686" }}>Activity</div>
-          <div>⏱️ {props.LastActivity}</div>
+          <div>{props.LastActivity}</div>
         </div>
       </div>
       <div className={Facts} style={{ textAlign: "left" }}>

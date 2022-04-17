@@ -7,6 +7,7 @@ import { Landing } from "./Pages/Landing/Landing";
 import { Dashboard } from "./Pages/Dashboard/Dashboard";
 import { Community } from "./Pages/Community/Community";
 import { Threads } from "./Pages/Threads/Threads";
+import { CommunityExpanded } from "./Pages/Community/CommunityExpanded";
 
 function App() {
   return (
@@ -20,6 +21,11 @@ function App() {
               <Route exact path="/dashboard" element={<Dashboard />} />
               <Route exact path="/community" element={<Community />} />
               <Route exact path="/threads/:id" element={<Threads />} />
+              <Route
+                exact
+                path="/community/:id"
+                element={<CommunityExpanded />}
+              />
             </Routes>
           </div>
           <Footer />
