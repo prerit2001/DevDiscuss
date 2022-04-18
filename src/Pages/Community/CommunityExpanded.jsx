@@ -43,7 +43,7 @@ const useStyles = makeStyles({
   },
 });
 
-export const CommunityExpanded = (props) => {
+export const CommunityExpanded = () => {
   const classes = useStyles();
   const navigate = useNavigate();
 
@@ -53,12 +53,12 @@ export const CommunityExpanded = (props) => {
     CommunityExpandedRightHalf,
   } = classes;
 
-  const RowData = () => {
+  const RowData = (props) => {
     return (
       <div style={{ display: "flex", padding: "10px" }}>
         <div style={{ width: "70%", textAlign: "left", fontSize: "30px" }}>
           {" "}
-          <ThreadCard />
+          <ThreadCard {...props} />
         </div>
         <div
           style={{
@@ -96,7 +96,7 @@ export const CommunityExpanded = (props) => {
           }}
         >
           {" "}
-          <div style={{ fontSize: "20px" }}>↩ 53</div>
+          <div style={{ fontSize: "20px" }}>↩ {props.comments.length}</div>
         </div>
       </div>
     );
@@ -106,11 +106,14 @@ export const CommunityExpanded = (props) => {
     data: { Users: [], Threads: [] },
   });
 
+  const [threadData, setthreadData] = useState([]);
+
   useEffect(() => {
     axios
       .get("http://localhost:3000" + window.location.pathname)
       .then((data) => {
         setcommunityData(data);
+        setthreadData(data.data.Threads);
       })
       .catch((error) => {
         console.log(error);
@@ -170,7 +173,7 @@ export const CommunityExpanded = (props) => {
                 }}
                 variant="outlined"
               >
-                11 📃
+                {communityData.data.Threads.length} 📃
               </Button>
               <Button
                 style={{
@@ -277,33 +280,13 @@ export const CommunityExpanded = (props) => {
           </Button>
           <div className="RowCover">
             <br />
-            <div onClick={(e) => navigate("/threads/1")}>
-              <RowData />
-            </div>
-            <div onClick={(e) => navigate("/threads/1")}>
-              <RowData />
-            </div>
-            <div onClick={(e) => navigate("/threads/1")}>
-              <RowData />
-            </div>
-            <div onClick={(e) => navigate("/threads/1")}>
-              <RowData />
-            </div>
-            <div onClick={(e) => navigate("/threads/1")}>
-              <RowData />
-            </div>
-            <div onClick={(e) => navigate("/threads/1")}>
-              <RowData />
-            </div>
-            <div onClick={(e) => navigate("/threads/1")}>
-              <RowData />
-            </div>
-            <div onClick={(e) => navigate("/threads/1")}>
-              <RowData />
-            </div>
-            <div onClick={(e) => navigate("/threads/1")}>
-              <RowData />
-            </div>
+            {threadData.map((thread) => {
+              return (
+                <div onClick={(e) => navigate("/threads/" + thread.id)}>
+                  <RowData {...thread} />
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

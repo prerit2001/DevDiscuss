@@ -11,6 +11,7 @@ import Select from "@mui/material/Select";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import { ThreadCard } from "./ThreadCard";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function getWindowDimensions() {
   const { innerWidth: width, innerHeight: height } = window;
@@ -40,6 +41,19 @@ export default function useWindowDimensions() {
 export const Dashboard = () => {
   const { height, width } = useWindowDimensions();
   const navigate = useNavigate();
+  const [Community, setCommunity] = useState({ data: [] });
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/community/3")
+      .then((data) => {
+        setCommunity(data);
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   const MyCommunity = () => {
     return (
@@ -90,6 +104,25 @@ export const Dashboard = () => {
     );
   };
 
+  const ThreadCardTemprorary = () => {
+    const description = `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`;
+
+    return (
+      <div>
+        <div className="ThreadContainer">
+          <div className="Question">
+            My Internship experience with Texas Instruments
+          </div>
+          <div className="ThreadCommunity">📦 Texas Instruments</div>
+          <div className="ThreadDescription">
+            {description.slice(0, 150)} ...
+          </div>
+          <div className="ThreadTag">#texas #intership #student</div>
+        </div>
+      </div>
+    );
+  };
+
   const Threads = () => {
     const [age, setAge] = React.useState("");
 
@@ -102,7 +135,7 @@ export const Dashboard = () => {
         <div style={{ display: "flex", padding: "10px" }}>
           <div style={{ width: "70%", textAlign: "left", fontSize: "30px" }}>
             {" "}
-            <ThreadCard />
+            <ThreadCardTemprorary />
           </div>
           <div
             style={{

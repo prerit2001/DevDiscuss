@@ -1,24 +1,14 @@
 import React from "react";
 import "./css/ThreadCard.css";
 
-export const ThreadCard = () => {
-  const description = `Lorem Ipsum is simply dummy text of the printing and typesetting 
-  industry. Lorem Ipsum has been the industry's standard dummy text ever
-  since the 1500s, when an unknown printer took a galley of type and
-  scrambled it to make a type specimen book. It has survived not only
-  five centuries, but also the leap into electronic typesetting,
-  remaining essentially unchanged. It was popularised in the 1960s with
-  the release of Letraset sheets containing Lorem Ipsum passages, and
-  more recently with desktop publishing software like Aldus PageMaker
-  including versions of Lorem Ipsum.`;
+export const ThreadCard = (props) => {
+  const description = props.question;
 
   return (
     <div>
       <div className="ThreadContainer">
-        <div className="Question">
-          My Internship experience with Texas Instruments
-        </div>
-        <div className="ThreadCommunity">📦 Texas Instrument</div>
+        <div className="Question">{props.title}</div>
+        <div className="ThreadCommunity">📦 {props.community}</div>
         <div className="ThreadDescription">{description.slice(0, 150)} ...</div>
         <div className="ThreadTag">#texas #intership #student</div>
       </div>
