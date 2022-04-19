@@ -282,7 +282,11 @@ export const CommunityExpanded = () => {
             <br />
             {threadData.map((thread) => {
               return (
-                <div onClick={(e) => navigate("/threads/" + thread.id)}>
+                <div
+                  onClick={(e) =>
+                    navigate("/threads/" + thread.id, { state: thread })
+                  }
+                >
                   <RowData {...thread} />
                 </div>
               );

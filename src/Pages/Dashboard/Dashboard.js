@@ -223,7 +223,11 @@ export const Dashboard = () => {
         <div className="RowCover" style={{ height: height - 230 }}>
           {Community.map((item) => {
             return (
-              <div onClick={(e) => navigate("/threads/" + item.id)}>
+              <div
+                onClick={(e) =>
+                  navigate("/threads/" + item.id, { state: item })
+                }
+              >
                 <RowData {...item} />
               </div>
             );
