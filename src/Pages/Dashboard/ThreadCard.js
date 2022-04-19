@@ -2,6 +2,7 @@ import React from "react";
 import "./css/ThreadCard.css";
 
 export const ThreadCard = (props) => {
+  console.log(props);
   const description = props.question;
 
   return (

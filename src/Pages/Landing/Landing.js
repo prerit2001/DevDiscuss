@@ -5,6 +5,7 @@ import SoftwareDevelopement from "../../Images/SoftwareDevelopement.png";
 import OpenSource from "../../Images/OpenSource.png";
 import Typewriter from "typewriter-effect";
 import Discussion from "../../Images/Discussion.png";
+import { useNavigate } from "react-router-dom";
 
 export const Landing = () => {
   const FeaturedCommunity = (community) => {
@@ -23,6 +24,8 @@ export const Landing = () => {
       </div>
     );
   };
+
+  const navigate = useNavigate();
 
   const community1 = {
     Topic: "CP V/S Dev",
@@ -61,7 +64,12 @@ export const Landing = () => {
           />
           <br />
           <div>
-            <button class="buttonExplore">Explore</button>
+            <button
+              class="buttonExplore"
+              onClick={(e) => navigate("/community")}
+            >
+              Explore
+            </button>
           </div>
         </div>
       </div>

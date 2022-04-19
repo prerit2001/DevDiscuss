@@ -41,14 +41,20 @@ export default function useWindowDimensions() {
 export const Dashboard = () => {
   const { height, width } = useWindowDimensions();
   const navigate = useNavigate();
-  const [Community, setCommunity] = useState({ data: [] });
+  const [Community, setCommunity] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/community/3")
+      .get("http://localhost:3000/community")
       .then((data) => {
-        setCommunity(data);
-        console.log(data);
+        // setCommunity(data);
+        var arr = [];
+        data.data.forEach((element) => {
+          element.Threads.forEach((elem) => {
+            arr.push(elem);
+          });
+        });
+        setCommunity(arr);
       })
       .catch((error) => {
         console.log(error);
@@ -130,12 +136,13 @@ export const Dashboard = () => {
       setAge(event.target.value);
     };
 
-    const RowData = () => {
+    const RowData = (item) => {
+      console.log(item);
       return (
         <div style={{ display: "flex", padding: "10px" }}>
           <div style={{ width: "70%", textAlign: "left", fontSize: "30px" }}>
             {" "}
-            <ThreadCardTemprorary />
+            <ThreadCard {...item} />
           </div>
           <div
             style={{
@@ -173,7 +180,7 @@ export const Dashboard = () => {
             }}
           >
             {" "}
-            <div style={{ fontSize: "20px" }}>↩ 53</div>
+            <div style={{ fontSize: "20px" }}>↩ {item.comments.length}</div>
           </div>
         </div>
       );
@@ -214,33 +221,13 @@ export const Dashboard = () => {
           </div>
         </div>
         <div className="RowCover" style={{ height: height - 230 }}>
-          <div onClick={(e) => navigate("/threads/1")}>
-            <RowData />
-          </div>
-          <div onClick={(e) => navigate("/threads/1")}>
-            <RowData />
-          </div>
-          <div onClick={(e) => navigate("/threads/1")}>
-            <RowData />
-          </div>
-          <div onClick={(e) => navigate("/threads/1")}>
-            <RowData />
-          </div>
-          <div onClick={(e) => navigate("/threads/1")}>
-            <RowData />
-          </div>
-          <div onClick={(e) => navigate("/threads/1")}>
-            <RowData />
-          </div>
-          <div onClick={(e) => navigate("/threads/1")}>
-            <RowData />
-          </div>
-          <div onClick={(e) => navigate("/threads/1")}>
-            <RowData />
-          </div>
-          <div onClick={(e) => navigate("/threads/1")}>
-            <RowData />
-          </div>
+          {Community.map((item) => {
+            return (
+              <div onClick={(e) => navigate("/threads/" + item.id)}>
+                <RowData {...item} />
+              </div>
+            );
+          })}
         </div>
       </div>
     );
